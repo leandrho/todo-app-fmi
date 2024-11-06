@@ -10,7 +10,7 @@ export const TodoList = ({ items }:TodoListProps) => {
     <div>
         {
             items.map(( todo )=>(
-                <TodoItem item={todo}/>
+                <TodoItem key={todo.id} item={todo}/>
             ))
         }
     </div>
