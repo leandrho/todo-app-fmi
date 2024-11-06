@@ -7,7 +7,7 @@ type TodoListProps = {
 
 export const TodoList = ({ items }:TodoListProps) => {
   return (
-    <div>
+    <div className='mt-8 flex flex-col gap-1'>
         {
             items.map(( todo )=>(
                 <TodoItem key={todo.id} item={todo}/>
