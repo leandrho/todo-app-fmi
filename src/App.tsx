@@ -18,6 +18,7 @@ function App() {
       </header>
       <main className="w-[540px]">
         <TodoForm addTodo={addTodo}/>
+        <TodoList items={todoList}/>
       </main>
     </div>
      
