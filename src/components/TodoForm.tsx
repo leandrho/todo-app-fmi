@@ -12,6 +12,8 @@ export const TodoForm = ( { addTodo } :TodoFormProps) => {
 
   const handleSubmit = () => {
     if(input.current){
+      if(!input.current.value)
+        return;
       const ntodo :TodoItemType = {
         id: ++globalID,
         name: 'nuevo',
