@@ -14,7 +14,7 @@ export const TodoItem = ({ item }:TodoItemProps) => {
                 className="peer appearance-none w-7 h-7 cursor-pointer rounded-full border-2 border-[--border-check] checked:bg-gradient-to-br checked:from-[--grad-from] checked:to-[--grad-to]"
              
                 />
-        <input ref={input} aria-label="Enter new task" type="text" className="outline-none min-h-6 text-[--text-main] peer-checked:line-through" value={item.description} readOnly/>
+        <input ref={input} aria-label="Enter new task" type="text" className="w-full outline-none min-h-6 text-[--text-main] peer-checked:line-through" value={item.description} readOnly/>
       </div>
     </div>
   )

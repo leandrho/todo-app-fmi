@@ -9,7 +9,7 @@ type TodoFormProps = {
 export const TodoForm = ( { addTodo } :TodoFormProps) => {
 
   const input = useRef<HTMLInputElement>(null);
-  
+
   const handleSubmit = () => {
     if(input.current){
       const ntodo :TodoItemType = {
@@ -31,7 +31,7 @@ export const TodoForm = ( { addTodo } :TodoFormProps) => {
                 className="appearance-none w-7 h-7 cursor-pointer rounded-full border-2 border-[--border-check] hover:bg-gradient-to-br hover:from-[--grad-from] hover:to-[--grad-to]"
                 onClick={()=>handleSubmit()}
                 />
-        <input ref={input} aria-label="Enter new task" type="text"  placeholder="Create a new todo..." className="outline-none min-h-6 text-[--text-main]" />
+        <input ref={input} aria-label="Enter new task" type="text"  placeholder="Create a new todo..." className="outline-none min-h-6 text-[--text-main] w-full" />
       </div>
     </form>
   )
