@@ -19,7 +19,10 @@ function App() {
         </header>
         <main className="w-[540px]">
           <TodoForm addTodo={addTodo}/>
-          <TodoList items={todoList} removeItem={removeTodo} modifyItem={modifyTodo}/>
+          {
+            todoList.length?<TodoList items={todoList} removeItem={removeTodo} modifyItem={modifyTodo}/>:null
+          }
+          
         </main>
     </div>
      
