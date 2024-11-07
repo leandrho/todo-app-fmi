@@ -12,12 +12,12 @@ export const TodoList = ({ items, removeItem, modifyItem }:TodoListProps) => {
     <div className='mt-6 flex flex-col bg-white rounded-lg'>
         {
             items.map(( todo,index )=>(
-                <>
-                  <TodoItem key={todo.id} item={todo} removeItem={removeItem} modifyItem={modifyItem}/>
+                <div key={todo.id}>
+                  <TodoItem  item={todo} removeItem={removeItem} modifyItem={modifyItem}/>
                   {
                     items.length!==index+1?<hr />:null
                   }
-                </>
+                </div>
             ))
         }
     </div>
