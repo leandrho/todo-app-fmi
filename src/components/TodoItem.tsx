@@ -39,7 +39,7 @@ export const TodoItem = ({ item, removeItem, modifyItem }:TodoItemProps) => {
           </div>
 
         <button className=''
-                onClick={()=>{removeItem(item.id); console.log('ID RM:',item.id)}}
+                onClick={()=>removeItem(item.id)}
         >
           <img src="./images/icon-cross.svg" alt="" />
         </button>

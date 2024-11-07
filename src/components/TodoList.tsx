@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { TodoItemType } from '../types';
 import { TodoItem } from './TodoItem';
 
@@ -8,6 +9,11 @@ type TodoListProps = {
 }
 
 export const TodoList = ({ items, removeItem, modifyItem }:TodoListProps) => {
+  
+  const filterTodos = (filter :string) => {
+
+  }
+
   return (
     <div className='mt-6 flex flex-col bg-white rounded-lg'>
         {
@@ -19,10 +25,23 @@ export const TodoList = ({ items, removeItem, modifyItem }:TodoListProps) => {
             ))
         }
         <div className='h-12 flex items-center px-4 justify-between'>
-          <p className='text-[--text-completed] text-base'>
+          <p className='text-[--text-completed] text-sm'>
             {items.reduce(( acc, c ) => c.done ? acc : acc+1 , 0)} items left
           </p>
-          <div></div>{/* Show all, active, completed*/}
+          <div className='flex items-center gap-4 text-base'>
+            <input type="radio" id='all' name='show' className='peer/all hidden'
+               onChange={()=>filterTodos('all')}
+            />
+            <label htmlFor="all" className='peer-checked/all:text-[--Bright-Blue] cursor-pointer'>All</label>
+            <input type="radio" id='active' name='show' className='peer/active hidden'
+              onChange={()=>filterTodos('active')}
+            />
+            <label htmlFor="active" className='peer-checked/active:text-[--Bright-Blue] cursor-pointer'>Active</label>
+            <input type="radio" id='completed' name='show' className='peer/completed hidden'
+              onChange={()=>filterTodos('completed')}
+            />
+            <label htmlFor="completed" className='peer-checked/completed:text-[--Bright-Blue] cursor-pointer'>Completed</label>
+          </div>{/* Show all, active, completed*/}
           <div></div>{/* Clear completed*/}
         </div>
     </div>
