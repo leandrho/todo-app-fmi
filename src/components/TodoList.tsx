@@ -2,15 +2,22 @@ import { TodoItemType } from '../types';
 import { TodoItem } from './TodoItem';
 
 type TodoListProps = {
-    items :TodoItemType[]
+    items :TodoItemType[];
+    removeItem: (id:number) => void;
+    modifyItem: (todo:TodoItemType)=>void;
 }
 
-export const TodoList = ({ items }:TodoListProps) => {
+export const TodoList = ({ items, removeItem, modifyItem }:TodoListProps) => {
   return (
-    <div className='mt-8 flex flex-col gap-1'>
+    <div className='mt-6 flex flex-col bg-white rounded-lg'>
         {
-            items.map(( todo )=>(
-                <TodoItem key={todo.id} item={todo}/>
+            items.map(( todo,index )=>(
+                <>
+                  <TodoItem key={todo.id} item={todo} removeItem={removeItem} modifyItem={modifyItem}/>
+                  {
+                    items.length!==index+1?<hr />:null
+                  }
+                </>
             ))
         }
     </div>
