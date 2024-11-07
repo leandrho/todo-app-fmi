@@ -8,7 +8,7 @@ type TodoItemProps = {
 }
 
 export const TodoItem = ({ item, removeItem, modifyItem }:TodoItemProps) => {
-  console.log('render: ', item.id)
+
   const input = useRef<HTMLInputElement>(null);
   const checkinput = useRef<HTMLInputElement>(null);
   const changeDone = ()=>{
