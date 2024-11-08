@@ -9,10 +9,14 @@ type TodoListProps = {
 }
 
 export const TodoList = ({ items, removeItem, modifyItem }:TodoListProps) => {
+
+  const allInput = useRef<HTMLInputElement>(null);
   const [showItems, setShowItems] = useState<TodoItemType[]>([]);
 
   useEffect(() => {
     setShowItems(items);
+    if(allInput.current)
+      allInput.current.checked = true;
   }, [ items ])
   
   const filterTodos = (filter :string) => {
@@ -39,7 +43,7 @@ export const TodoList = ({ items, removeItem, modifyItem }:TodoListProps) => {
             {showItems.reduce(( acc, c ) => c.done ? acc : acc+1 , 0)} items left
           </p>
           <div className='flex items-center gap-4 text-base'>
-            <input type="radio" id='all' name='show' className='peer/all hidden'
+            <input ref={allInput} type="radio" id='all' name='show' className='peer/all hidden'
                onChange={()=>filterTodos('all')}
             />
             <label htmlFor="all" className='peer-checked/all:text-[--Bright-Blue] cursor-pointer'>All</label>
