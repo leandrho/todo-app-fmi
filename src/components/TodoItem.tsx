@@ -24,7 +24,7 @@ export const TodoItem = ({ item, removeItem, modifyItem }:TodoItemProps) => {
 
   return (
     <div className='h-16 flex'>
-      <div className="bg-white flex-grow flex items-center justify-between gap-6 px-4 rounded-lg">
+      <div className="bg-white flex-grow flex items-center justify-between gap-6 px-4 rounded-lg group">
         <div className='flex items-center gap-6 relative'>
             <input ref={checkinput} id={id} type='checkbox' aria-label="submit" 
                   className="block peer appearance-none min-w-[28px] min-h-[28px] cursor-pointer rounded-full border-2 border-[--border-check] checked:bg-gradient-to-br checked:from-[--grad-from] 
@@ -36,12 +36,12 @@ export const TodoItem = ({ item, removeItem, modifyItem }:TodoItemProps) => {
               <img src="./images/icon-check.svg" alt="" />
             </label>
             <input ref={input} aria-label="Enter new task" type="text" className="w-full outline-none min-h-6 text-[--text-main] peer-checked:line-through peer-checked:text-[--text-completed]" value={item.description} readOnly/>
-          </div>
+        </div>
 
-        <button className=''
+        <button className='hidden group-hover:block'
                 onClick={()=>removeItem(item.id)}
         >
-          <img src="./images/icon-cross.svg" alt="" />
+            <img src="./images/icon-cross.svg" alt="" />
         </button>
         
       </div>
