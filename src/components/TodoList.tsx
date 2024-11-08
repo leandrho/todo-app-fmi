@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { TodoItemType } from '../types';
 import { TodoItem } from './TodoItem';
 
@@ -9,15 +9,25 @@ type TodoListProps = {
 }
 
 export const TodoList = ({ items, removeItem, modifyItem }:TodoListProps) => {
+  const [showItems, setShowItems] = useState<TodoItemType[]>([]);
+
+  useEffect(() => {
+    setShowItems(items);
+  }, [ items ])
   
   const filterTodos = (filter :string) => {
-
+    if(filter==='active')
+      setShowItems(items.filter((i)=>!i.done));
+    else if(filter === 'completed')
+      setShowItems(items.filter((i)=>i.done));
+    else
+      setShowItems(items);
   }
 
   return (
     <div className='mt-6 flex flex-col bg-white rounded-lg'>
         {
-            items.map(( todo )=>(
+            showItems.map(( todo )=>(
                 <div key={todo.id}>
                   <TodoItem  item={todo} removeItem={removeItem} modifyItem={modifyItem}/>
                   <hr />
@@ -26,7 +36,7 @@ export const TodoList = ({ items, removeItem, modifyItem }:TodoListProps) => {
         }
         <div className='h-12 flex items-center px-4 justify-between'>
           <p className='text-[--text-completed] text-sm'>
-            {items.reduce(( acc, c ) => c.done ? acc : acc+1 , 0)} items left
+            {showItems.reduce(( acc, c ) => c.done ? acc : acc+1 , 0)} items left
           </p>
           <div className='flex items-center gap-4 text-base'>
             <input type="radio" id='all' name='show' className='peer/all hidden'
