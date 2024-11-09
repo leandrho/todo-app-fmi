@@ -3,7 +3,7 @@ import { TodoForm, TodoList } from './components';
 
 function App() {
 
-  const { todoList, addTodo, removeTodo, modifyTodo } = useTodoApp();
+  const { todoList, addTodo, removeTodo, modifyTodo, clearCompleted } = useTodoApp();
   
   const bg = {
     backgroundImage: 'url(/images/bg-desktop-light.jpg)',
@@ -20,7 +20,7 @@ function App() {
         <main className="w-[540px]">
           <TodoForm addTodo={addTodo}/>
           {
-            todoList.length?<TodoList items={todoList} removeItem={removeTodo} modifyItem={modifyTodo}/>:null
+            todoList.length?<TodoList items={todoList} removeItem={removeTodo} modifyItem={modifyTodo} clearCompleted={clearCompleted}/>:null
           }
           
         </main>

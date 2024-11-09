@@ -6,9 +6,10 @@ type TodoListProps = {
     items :TodoItemType[];
     removeItem: (id:number) => void;
     modifyItem: (todo:TodoItemType)=>void;
+    clearCompleted: ()=>void;
 }
 
-export const TodoList = ({ items, removeItem, modifyItem }:TodoListProps) => {
+export const TodoList = ({ items, removeItem, modifyItem, clearCompleted }:TodoListProps) => {
 
   const allInput = useRef<HTMLInputElement>(null);
   const [showItems, setShowItems] = useState<TodoItemType[]>([]);
@@ -56,7 +57,13 @@ export const TodoList = ({ items, removeItem, modifyItem }:TodoListProps) => {
             />
             <label htmlFor="completed" className='peer-checked/completed:text-[--Bright-Blue] cursor-pointer'>Completed</label>
           </div>{/* Show all, active, completed*/}
-          <div></div>{/* Clear completed*/}
+          <div>
+            <button className='text-base'
+                    onClick={()=>clearCompleted()}
+            >
+              Clear completed
+            </button>
+          </div>{/* Clear completed*/}
         </div>
     </div>
   )
