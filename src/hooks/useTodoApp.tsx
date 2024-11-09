@@ -18,11 +18,14 @@ export const useTodoApp = () => {
             return t;
         }) );
     }
-
+    const clearCompleted = () => {
+        setTodoList(todoList.filter((t)=>!t.done));
+    }
     return {
         todoList,
         addTodo,
         removeTodo,
-        modifyTodo
+        modifyTodo,
+        clearCompleted,
     };
 }
