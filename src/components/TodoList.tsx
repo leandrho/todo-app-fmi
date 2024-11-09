@@ -56,14 +56,14 @@ export const TodoList = ({ items, removeItem, modifyItem, clearCompleted }:TodoL
               onChange={()=>filterTodos('completed')}
             />
             <label htmlFor="completed" className='peer-checked/completed:text-[--Bright-Blue] cursor-pointer'>Completed</label>
-          </div>{/* Show all, active, completed*/}
+          </div>
           <div>
             <button className='text-base'
                     onClick={()=>clearCompleted()}
             >
               Clear completed
             </button>
-          </div>{/* Clear completed*/}
+          </div>
         </div>
     </div>
   )
