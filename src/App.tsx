@@ -39,6 +39,9 @@ function App() {
           }
           
         </main>
+        <footer className="text-center text-[--text-main] text-[15px]">
+          <p>Drag and drop to reorder list</p>
+        </footer>
     </div>
      
     </>
