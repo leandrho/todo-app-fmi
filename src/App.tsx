@@ -5,12 +5,17 @@ import { useRef, useState } from "react";
 function App() {
 
   const { todoList, addTodo, removeTodo, modifyTodo, clearCompleted } = useTodoApp();
+  const [theme, setTheme] = useState(false)
+
   const themeCheck = useRef<HTMLInputElement>(null);
   const bg = {
     backgroundImage: 'url(/images/bg-desktop-light.jpg)',
     backgroundSize: '100%',
     backgroundPosition: 'top',
     backgroundRepeat: 'no-repeat',
+  }
+  const changeTheme = () => {
+    setTheme(!theme)
   }
   return (
     <>
